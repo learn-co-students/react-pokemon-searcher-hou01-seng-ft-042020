@@ -34,6 +34,7 @@ class PokemonPage extends React.Component {
 
   handleSearch = (e) => {
     this.setState({
+      ...this.state,
       search: e.target.value,
     });
   };
