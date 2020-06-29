@@ -20,18 +20,6 @@ class PokemonPage extends React.Component {
       });
   }
 
-  togglePokemonImg = (pokemon) => {
-    const allPokemon = this.state.pokemon;
-    const pokemonIndex = allPokemon.indexOf(pokemon);
-    this.setState({
-      pokemon: [
-        ...allPokemon.slice(0, pokemonIndex),
-        { ...pokemon, isClicked: !pokemon.isClicked },
-        ...allPokemon.slice(pokemonIndex + 1),
-      ],
-    });
-  };
-
   handleSearch = (e) => {
     this.setState({
       ...this.state,
@@ -57,10 +45,7 @@ class PokemonPage extends React.Component {
         <br />
         <Search onChange={this.handleSearch} />
         <br />
-        <PokemonCollection
-          pokemon={searchPokemon}
-          toggle={this.togglePokemonImg}
-        />
+        <PokemonCollection pokemon={searchPokemon} />
       </Container>
     );
   }

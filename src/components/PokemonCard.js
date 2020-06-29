@@ -2,12 +2,21 @@ import React from "react";
 import { Card } from "semantic-ui-react";
 
 class PokemonCard extends React.Component {
+  state = {
+    isClicked: false,
+  };
+
+  handleClick = () => {
+    this.setState({
+      isClicked: !this.state.isClicked,
+    });
+  };
   render() {
     const pokemon = this.props.pokemon;
-    const { name, hp, sprites, isClicked } = pokemon;
-    const imgUrl = isClicked ? sprites.back : sprites.front;
+    const { name, hp, sprites } = pokemon;
+    const imgUrl = this.state.isClicked ? sprites.back : sprites.front;
     return (
-      <Card onClick={() => this.props.toggle(pokemon)}>
+      <Card onClick={this.handleClick}>
         <div>
           <div className="image">
             <img src={imgUrl} alt="oh no!" />
