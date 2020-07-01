@@ -32,7 +32,7 @@ class PokemonPage extends React.Component {
     })
   }
 
-  addPokemon = (e) => {
+  addPokemon = (e, pokemon) => {
     e.preventDefault()
     // debugger
     const options = {
@@ -41,16 +41,11 @@ class PokemonPage extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: e.target[0].value,
-        stats: [
-          {
-            value: e.target[1].value,
-            name: 'hp'
-          }
-        ],
+        name: pokemon.name,
+        hp: parseInt(pokemon.hp),
         sprites: {
-          front: e.target[2].value,
-          back: e.target[3].value
+          front: pokemon.frontUrl,
+          back: pokemon.backUrl
         }
       })
     }

@@ -19,12 +19,36 @@ class PokemonForm extends React.Component {
     return (
       <div>
         <h3>Add a Pokemon!</h3>
-        <Form onSubmit={(e) => {this.props.addPokemon(e)}}>
+        <Form onSubmit={(e) => {this.props.addPokemon(e, this.state)}}>
           <Form.Group widths="equal">
-            <Form.Input fluid onChange={this.handleChange} label="Name" placeholder="Name" name="name" value={name}/>
-            <Form.Input fluid onChange={this.handleChange} label="hp" placeholder="hp" name="hp" value={hp}/>
-            <Form.Input fluid onChange={this.handleChange} label="Front Image URL" placeholder="url" name="frontUrl" value={frontUrl}/>
-            <Form.Input fluid onChange={this.handleChange} label="Back Image URL" placeholder="url" name="backUrl" value={backUrl}/>
+            <Form.Input 
+              fluid 
+              onChange={this.handleChange} 
+              label="Name" 
+              placeholder="Name" 
+              name="name" 
+              value={name}/>
+            <Form.Input 
+              fluid 
+              onChange={this.handleChange} 
+              label="hp" 
+              placeholder="hp" 
+              name="hp" 
+              value={hp}/>
+            <Form.Input 
+              fluid 
+              onChange={this.handleChange} 
+              label="Front Image URL" 
+              placeholder="url" 
+              name="frontUrl" 
+              value={frontUrl}/>
+            <Form.Input 
+              fluid 
+              onChange={this.handleChange} 
+              label="Back Image URL" 
+              placeholder="url" 
+              name="backUrl" 
+              value={backUrl}/>
           </Form.Group>
           <Form.Button>Submit</Form.Button>
         </Form>

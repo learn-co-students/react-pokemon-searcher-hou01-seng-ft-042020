@@ -1343,12 +1343,7 @@
     },
     {
       "name": "ESTHER",
-      "stats": [
-        {
-          "value": "22",
-          "name": "hp"
-        }
-      ],
+      "hp": 77,
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png",
         "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/149.png"
