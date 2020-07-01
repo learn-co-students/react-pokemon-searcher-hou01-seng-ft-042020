@@ -3,11 +3,11 @@ import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
   render() {
-    console.log("POKRMON", this.props.pokemon)
+    // console.log("POKRMON", this.props.pokemon)
     const selectPokemon = this.props.pokemon
     const { name, hp, sprites, isClicked } = selectPokemon
-    console.log("POKRMON Img", selectPokemon.sprites.front)
-    console.log("SELECT POKRMON", selectPokemon)
+    // console.log("POKRMON Img", selectPokemon.sprites.front)
+    // console.log("SELECT POKRMON", selectPokemon)
     let url = isClicked ? sprites.back : sprites.front
     return (
       <Card>

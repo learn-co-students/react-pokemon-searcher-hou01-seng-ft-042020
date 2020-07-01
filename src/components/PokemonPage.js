@@ -32,9 +32,41 @@ class PokemonPage extends React.Component {
     })
   }
 
-  addPokemon = pokemon => {
-    this.setState({ pokemons: [...this.state.pokemons, pokemon] })
+  addPokemon = (e) => {
+    e.preventDefault()
+    // debugger
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: e.target[0].value,
+        stats: [
+          {
+            value: e.target[1].value,
+            name: 'hp'
+          }
+        ],
+        sprites: {
+          front: e.target[2].value,
+          back: e.target[3].value
+        }
+      })
+    }
+    fetch('http://localhost:3000/pokemon', options)
+      .then(res => res.json())
+      .then(pokemon => {
+        console.log(pokemon)
+        this.setState({
+          pokemons: [...this.state.pokemons, pokemon]
+        })
+      })
+      .catch(error => console.error(error))
+      e.target.reset()
   }
+
+    // this.setState({ pokemons: [...this.state.pokemons, pokemon] })
 
   handleSearch = event => {
     this.setState({ searchTerm: event.target.value })

@@ -10,43 +10,8 @@ class PokemonForm extends React.Component {
     }
   }
 
-  // this.props.addPokemon(this.state.pokemon)
-
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value })
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-    const { name, hp, frontUrl, backUrl } = this.state
-    debugger
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: name,
-        stats: [
-          {
-            value: hp,
-            name: 'hp'
-          }
-        ],
-        sprites: {
-          front: frontUrl,
-          back: backUrl
-        }
-      })
-    }
-    fetch(`http:pokemon//localhost:3000/${this.state.pokemon.id}`, options)
-      .then(res => res.json())
-      .then(pokemon => {
-        this.props.addPokemon(pokemon)
-        .catch(error => console.error(error))
-      })
-      e.target.reset()
-
   }
 
   render() {
@@ -54,7 +19,7 @@ class PokemonForm extends React.Component {
     return (
       <div>
         <h3>Add a Pokemon!</h3>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={(e) => {this.props.addPokemon(e)}}>
           <Form.Group widths="equal">
             <Form.Input fluid onChange={this.handleChange} label="Name" placeholder="Name" name="name" value={name}/>
             <Form.Input fluid onChange={this.handleChange} label="hp" placeholder="hp" name="hp" value={hp}/>
