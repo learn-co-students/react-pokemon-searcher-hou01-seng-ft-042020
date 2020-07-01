@@ -41,8 +41,8 @@ class PokemonPage extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        // name: e.target[0].value,
         name: pokemon.name,
+        // name: e.target[0].value,
         hp: parseInt(pokemon.hp),
         sprites: {
           front: pokemon.frontUrl,
@@ -58,7 +58,6 @@ class PokemonPage extends React.Component {
           pokemons: [...this.state.pokemons, pokemon]
         })
       })
-      .catch(error => console.error(error))
       e.target.reset()
   }
 
