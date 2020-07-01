@@ -68,7 +68,7 @@ class PokemonPage extends React.Component {
   render() {
     if (this.state.pokemons === null) {
       return (
-        <h1>Loarding...</h1>
+        <h1>Loading...</h1>
       )
     }
 
