@@ -41,6 +41,7 @@ class PokemonPage extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+        // name: e.target[0].value,
         name: pokemon.name,
         hp: parseInt(pokemon.hp),
         sprites: {
@@ -60,8 +61,6 @@ class PokemonPage extends React.Component {
       .catch(error => console.error(error))
       e.target.reset()
   }
-
-    // this.setState({ pokemons: [...this.state.pokemons, pokemon] })
 
   handleSearch = event => {
     this.setState({ searchTerm: event.target.value })
